@@ -17,7 +17,7 @@ type OSM struct {
 
 
 
-// Формула гаверсинуса
+// Формула гаверсинуса для вычисления расстояния
 func Haversine(lat1, lon1, lat2, lon2 float64) float64 {
 	const earthRadius = 6371000 // Радиус Земли в метрах
 

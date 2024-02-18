@@ -8,19 +8,19 @@ import (
 )
    
 type Order struct{
-	FROM_Node int // точка откуда
-	TO_Node int // точка куда
+	FROM_Node int // точка откуда значение от 0 до 39637
+	TO_Node int // точка куда значение от 0 до 39637
 	Price float64 // цена заказа
 	id int // ид заказа
 
 }
 
 type Courier struct{
-	Geo_Node int // геолокация курьера
+	Geo_Node int // геолокация курьера значение от 0 до 39637
 	id int // ид курьера
 }
 
-func Parsing_orders(filename string) ([]Order, error) {
+func Parsing_orders(filename string) ([]Order, error) { //функция парсинга заказов и csv
     ordersFile, err := os.Open(filename)
     if err != nil {
         return nil, fmt.Errorf("Error opening orders file: %v", err)
@@ -62,7 +62,7 @@ func Parsing_orders(filename string) ([]Order, error) {
     return orders, nil
 }
 
-func Parsing_couriers(filename string) ([]Courier, error){
+func Parsing_couriers(filename string) ([]Courier, error){ //функция парсинга заказов и csv
 	couriersFile, err := os.Open(filename)
 	if err != nil{
 		return nil, fmt.Errorf("Error opening couriersfile: %v", err)
